@@ -1,5 +1,9 @@
 package com.capitalone.model;
 
+/**
+ * Author : Nikhil
+ */
+
 public class Services {
 	private Long customerId;
 	private Long loanId;
