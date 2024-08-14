@@ -2,7 +2,7 @@ package com.capitalone.model;
 /**
  * Account = Abhi
  */
-public class Account {
+public class Account extends Customer{
 	
 	private Long customerId;
 	private String name;
@@ -15,7 +15,7 @@ public class Account {
 	public Account() {
 		
 	}
-	public long getCustomerId() {
+	public Long getCustomerId() {
 		return customerId;
 	}
 	public void setCustomerId(Long customerId){

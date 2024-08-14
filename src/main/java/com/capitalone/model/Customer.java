@@ -3,12 +3,18 @@
  */
 package com.capitalone.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
 /**
  * ramesh b
  */
+@Entity
 public class Customer {
 	
 	// accessspecifier datatype name
+	
+	@Id
 	private Long customerId;  // 12   "12"
 	private String name;
 	private String address;
