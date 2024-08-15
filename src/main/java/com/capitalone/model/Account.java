@@ -2,9 +2,9 @@ package com.capitalone.model;
 /**
  * Account = Abhi
  */
-public class Account {
+public class Account extends Customer{
 	
-	private Long customerId;
+	private long customerId;
 	private String name;
 	private String accType;
 	private float bal;
@@ -15,13 +15,14 @@ public class Account {
 	public Account() {
 		
 	}
-	public Account(Long CustomerId) {
+	
+	public Account(long CustomerId) {
 		this.customerId = customerId;
 		
 	}
 	
 	
-	public Account(Long customerId, String name, String accType, float bal, boolean creditCard, float ccBal,
+	public Account(long customerId, String name, String accType, float bal, boolean creditCard, float ccBal,
 			int creditScore) {
 		super();
 		this.customerId = customerId;
@@ -35,7 +36,7 @@ public class Account {
 	public long getCustomerId() {
 		return customerId;
 	}
-	public void setCustomerId(Long customerId){
+	public void setCustomerId(long customerId){
 		this.customerId = customerId;
 		
 	}

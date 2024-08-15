@@ -1,5 +1,6 @@
 package com.capitalone.util;
 
+import com.capitalone.model.Account;
 import com.capitalone.model.Customer;
 
 public class Test {
@@ -37,6 +38,12 @@ public class Test {
 	
 	public static void main(String[] args) {
 		Customer c = new Customer(123L);
+		
+		
+		Account ac = new Account();
+		//ac.get
+		
+		
 	
 	}
 
