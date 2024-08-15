@@ -15,6 +15,23 @@ public class Account {
 	public Account() {
 		
 	}
+	public Account(Long CustomerId) {
+		this.customerId = customerId;
+		
+	}
+	
+	
+	public Account(Long customerId, String name, String accType, float bal, boolean creditCard, float ccBal,
+			int creditScore) {
+		super();
+		this.customerId = customerId;
+		this.name = name;
+		this.accType = accType;
+		this.bal = bal;
+		this.creditCard = creditCard;
+		this.ccBal = ccBal;
+		this.creditScore = creditScore;
+	}
 	public long getCustomerId() {
 		return customerId;
 	}
