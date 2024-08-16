@@ -10,10 +10,9 @@ public class Services {
 	private String loanType;
 	private double loanAmount;
 	private float interestRate;
+	private int creditScore;
 	
-	private String depositName;
-	private double depositAmount;
-	private String depositAccount;
+	
 	
 	public Services() {
 		
@@ -23,16 +22,27 @@ public class Services {
 	
 	
 	public Services(Long customerId, Long loanId, String loanType, double loanAmount, float interestRate,
-			String depositName, double depositAmount, String depositAccount) {
+			 int creditScore) {
 		super();
 		this.customerId = customerId;
 		this.loanId = loanId;
 		this.loanType = loanType;
 		this.loanAmount = loanAmount;
 		this.interestRate = interestRate;
-		this.depositName = depositName;
-		this.depositAmount = depositAmount;
-		this.depositAccount = depositAccount;
+		
+		this.creditScore = creditScore;
+	}
+
+
+
+	public int getCreditScore() {
+		return creditScore;
+	}
+
+
+
+	public void setCreditScore(int creditScore) {
+		this.creditScore = creditScore;
 	}
 
 
@@ -67,24 +77,7 @@ public class Services {
 	public void setInterestRate(float interestRate) {
 		this.interestRate = interestRate;
 	}
-	public String getDepositName() {
-		return depositName;
-	}
-	public void setDepositName(String depositName) {
-		this.depositName = depositName;
-	}
-	public double getDepositAmount() {
-		return depositAmount;
-	}
-	public void setDepositAmount(double depositAmount) {
-		this.depositAmount = depositAmount;
-	}
-	public String getDepositAccount() {
-		return depositAccount;
-	}
-	public void setDepositAccount(String depositAccount) {
-		this.depositAccount = depositAccount;
-	}
+	
 	
 	
 }
