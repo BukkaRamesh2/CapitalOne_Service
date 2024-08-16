@@ -1,6 +1,6 @@
 package com.capitalone.model;
 
-public class Services {
+public class Services extends Customer{
 	private Long customerId;
 	private Long loanId;
 	private String loanType;

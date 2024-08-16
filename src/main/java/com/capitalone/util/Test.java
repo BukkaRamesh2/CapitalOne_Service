@@ -2,6 +2,7 @@ package com.capitalone.util;
 
 import com.capitalone.model.Account;
 import com.capitalone.model.Customer;
+import com.capitalone.model.Services;
 
 public class Test {
 	
@@ -17,6 +18,10 @@ public class Test {
 	 *   Services  -- nikhil
 	 *   Accounts -- abhi
 	 *   Card -- prasanna 
+	 *   Insurance -- sreedath
+	 *   Branch -- Srinadh
+	 *   Employee -- Deepa
+	 *    
 	 *   
 	 *   
 	 *   ****
@@ -37,10 +42,20 @@ public class Test {
 	
 	
 	public static void main(String[] args) {
-		Customer c = new Customer(123L);
 		
+		Account account = new Account();
+		account.setAccType("savings");
+		account.setBal(100.00f);
+		account.setName("accName");
 		
-		Account ac = new Account();
+		Customer c = new Customer(123L, account);
+		c.testMethod();//
+		
+		c.getAccount().getBal();
+		
+		Services ac = new Services();
+		//ac.get
+		//
 		//ac.get
 		
 		

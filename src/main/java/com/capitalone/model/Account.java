@@ -2,7 +2,7 @@ package com.capitalone.model;
 /**
  * Account = Abhi
  */
-public class Account extends Customer{
+public class Account {
 	
 	private Long customerId;
 	private String name;
@@ -59,6 +59,10 @@ public class Account extends Customer{
 		this.creditScore = creditScore;
 	}
 	
+	
+	public void testMethod() {
+    	System.out.println("account class test method");
+    }
 	
 	
 }
