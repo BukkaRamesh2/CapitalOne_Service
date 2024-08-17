@@ -1,17 +1,19 @@
 package com.capitalone.model;
 
-
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
 /**
  * Sreedath
  */
 
 
-
+@Entity
 public class Insurance {
 
 	
 	private Long customerId;
+	@Id
 	private Long insuranceId;
 	private String policyType;
 	private Integer policyNumber;
@@ -34,9 +36,11 @@ public class Insurance {
 		this.beneficiary = beneficiary;
 	}
 
-	public Insurance(Long customerId) {
-		this.customerId = customerId;
+	public Insurance(Long insuranceId) {
+		super();
+		this.insuranceId = insuranceId;
 	}
+
 
 	public Insurance() {
 	}
