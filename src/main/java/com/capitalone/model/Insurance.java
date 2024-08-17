@@ -8,7 +8,6 @@ package com.capitalone.model;
 
 
 
-
 public class Insurance {
 
 	
