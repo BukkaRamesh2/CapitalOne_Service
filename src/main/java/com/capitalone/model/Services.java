@@ -1,10 +1,14 @@
 package com.capitalone.model;
 
+<<<<<<< HEAD
 /**
  * Author : Nikhil
  */
 
 public class Services {
+=======
+public class Services extends Customer{
+>>>>>>> 1b5507f39c3f23f8ac227ef88fd29f7f1d9cfead
 	private Long customerId;
 	private Long loanId;
 	private String loanType;
