@@ -148,11 +148,9 @@ public class CustomerServiceImpl implements CustomerService {
 		 default:
 			 throw new IllegalArgumentException("The input is out of united states");
 		}
-		}catch (IOException e) {
+		}catch (Exception e) {
 			e.printStackTrace();
-		} catch(FileNotFoundException fn){
-			fn.printStackTrace();
-		}
+		} 
 		
 		
 		
