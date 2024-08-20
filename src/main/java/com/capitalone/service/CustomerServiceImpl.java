@@ -3,15 +3,14 @@ package com.capitalone.service;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.capitalone.exception.BankingException;
 import com.capitalone.model.Customer;
 import com.capitalone.repository.CustomerRepository;
-import com.capitalone.util.TransactionType;
 
 /*
  *  Implements  -- use the connection betwn ur class to interface
@@ -35,13 +34,15 @@ public class CustomerServiceImpl implements CustomerService {
 		// check weather a user exists in DB 
 		
 		// check iof the email ends with xys dont allow him to register
+		
+		
 		if (custRepo.existsById(customer.getCustomerId())) {
 
 			if (customer.getEmail().endsWith("@yahoo.com")) {
 				throw new IllegalArgumentException("Invalid email domain ");
 			}
-			throw new IllegalArgumentException(
-					"Customer with Id: " + customer.getCustomerId() + " already exists in our records ");
+			throw new BankingException("Customer with Id: " + customer.getCustomerId() + " already exists in our records ");
+			
 		} else if (customer.getAddress().equalsIgnoreCase("Texas")) {
 			return custRepo.save(customer);
 		} else {
