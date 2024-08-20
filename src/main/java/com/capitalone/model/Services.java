@@ -20,7 +20,7 @@ public class Services {
 	private String loanType;
 	private double loanAmount;
 	private float interestRate;
-
+	private int creditScore;
 	private String depositName;
 	private double depositAmount;
 	private String depositAccount;
@@ -98,6 +98,14 @@ public class Services {
 
 	public void setDepositAccount(String depositAccount) {
 		this.depositAccount = depositAccount;
+	}
+
+	public int getCreditScore() {
+		return creditScore;
+	}
+
+	public void setCreditScore(int creditScore) {
+		this.creditScore = creditScore;
 	}
 
 }
