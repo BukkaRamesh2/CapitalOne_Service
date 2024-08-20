@@ -4,17 +4,22 @@
 package com.capitalone.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 /**
  * ramesh b
  */
 @Entity
-public class Customer extends Account{
+@Table(name = "Customer")
+public class Customer{
 	
 	// accessspecifier datatype name
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long customerId;  // 12   "12"
 	private String name;
 	private String address;

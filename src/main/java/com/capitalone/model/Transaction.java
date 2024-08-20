@@ -1,16 +1,26 @@
 
 package com.capitalone.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
+
 /**
  * 
  * 
  * Author: Mani
  */
+@Entity
+@Table(name = "Tranaction")
 public class Transaction {
 
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
     private Long transactionId;  
-    private Long customerId;      
+    
     private double amount;      
     private String date;          
     private String type;          
@@ -27,9 +37,9 @@ public class Transaction {
     }
 
 
-    public Transaction(Long transactionId, Long customerId, double amount, String date, String type, String description) {
+    public Transaction(Long transactionId, double amount, String date, String type, String description) {
         this.transactionId = transactionId;
-        this.customerId = customerId;
+   
         this.amount = amount;
         this.date = date;
         this.type = type;
@@ -46,13 +56,7 @@ public class Transaction {
         this.transactionId = transactionId;
     }
 
-    public Long getCustomerId() {
-        return customerId;
-    }
 
-    public void setCustomerId(Long customerId) {
-        this.customerId = customerId;
-    }
 
     public double getAmount() {
         return amount;

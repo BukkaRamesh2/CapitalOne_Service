@@ -1,27 +1,51 @@
 package com.capitalone.model;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 /**
  * Account = Abhi
  */
+@Entity
+@Table(name = "Account")
 public class Account {
 	
-	private Long customerId;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long accountId;
+	
+	
+	
+	@Column(name = "name")
 	private String name;
+	
+	@Column(name = "accType")
 	private String accType;
+	
+	@Column(name = "bal")
 	private float bal;
+	
+	@Column(name = "creditCard")
 	private boolean creditCard;
+	
+	@Column(name = "ccBal")
 	private float ccBal;
+	
+	@Column(name = "creditScore")
 	private int creditScore;
 	
-	public Account() {
-		
+	
+	public Long getAccountId() {
+		return accountId;
 	}
-	public Long getCustomerId() {
-		return customerId;
+	public void setAccountId(Long accountId) {
+		this.accountId = accountId;
 	}
-	public void setCustomerId(Long customerId){
-		this.customerId = customerId;
-		
-	}
+	
 	public String getName() {
 		return name;
 	}
@@ -60,9 +84,9 @@ public class Account {
 	}
 	
 	
-	public void testMethod() {
-    	System.out.println("account class test method");
-    }
+	
+	
+	
 	
 	
 }

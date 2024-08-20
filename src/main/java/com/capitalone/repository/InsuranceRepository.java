@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.capitalone.model.Insurance;
 
 @Repository
-public interface InsuranceRepository extends JpaRepository{
+public interface InsuranceRepository extends JpaRepository<Insurance, Long>{
 	
 	Insurance findByName (String name);
 	

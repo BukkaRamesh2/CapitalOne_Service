@@ -1,7 +1,11 @@
 package com.capitalone.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 
 /**
  * Sreedath
@@ -9,11 +13,13 @@ import jakarta.persistence.Id;
 
 
 @Entity
+@Table(name = "Insurance")
 public class Insurance {
 
+
 	
-	private Long customerId;
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long insuranceId;
 	private String policyType;
 	private Integer policyNumber;
@@ -23,10 +29,10 @@ public class Insurance {
 	private String beneficiary;
 	
 	
-	public Insurance(Long customerId, Long insuranceId, String policyType, Integer policyNumber,
+	public Insurance( Long insuranceId, String policyType, Integer policyNumber,
 			Integer policySpanInYears, Integer coverageAmount, Integer premiumAmount, String beneficiary) {
 		super();
-		this.customerId = customerId;
+	
 		this.insuranceId = insuranceId;
 		this.policyType = policyType;
 		this.policyNumber = policyNumber;
@@ -47,12 +53,7 @@ public class Insurance {
 
 	
 	
-	public Long getCustomerId() {
-		return customerId;
-	}
-	public void setCustomerId(Long customerId) {
-		this.customerId = customerId;
-	}
+	
 	public Long getInsuranceId() {
 		return insuranceId;
 	}

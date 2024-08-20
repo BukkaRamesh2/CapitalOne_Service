@@ -49,7 +49,7 @@ public class Test {
 		account.setName("accName");
 		
 		Customer c = new Customer(123L, account);
-		c.testMethod();//
+		
 		
 		c.getAccount().getBal();
 		
