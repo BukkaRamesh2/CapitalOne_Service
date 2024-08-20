@@ -6,12 +6,12 @@ import com.capitalone.model.Insurance;
 public interface InsuranceService {
 
 	
-	Insurance createInsurance(Insurance insurance);
+	public Insurance createInsurance(Insurance insurance);
 	
-	Insurance getInsurance(String name);
+	public Insurance getInsurance(String name);
 
-	Insurance updateInsurance(Insurance insurance);
+	public Insurance updateInsurance(Insurance insurance);
 	
-	void deleteInsurance(String name);
+	public void deleteInsurance(String name);
 	
 }
