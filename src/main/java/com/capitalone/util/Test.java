@@ -52,10 +52,10 @@ public class Test {
 		account.setBal(100.00f);
 		account.setName("accName");
 		
-		Customer c = new Customer(123L, account);
+		//Customer c = new Customer(123L, account);
 		
 		
-		c.getAccount().getBal();
+		//c.getAccount().getBal();
 		
 		Services ac = new Services();
 		//ac.get

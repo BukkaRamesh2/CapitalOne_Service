@@ -19,8 +19,9 @@ public class Customer{
 	// accessspecifier datatype name
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long customerId;  // 12   "12"
+	
 	private String name;
 	private String address;
 	private Integer phoneNumber;
@@ -28,7 +29,7 @@ public class Customer{
 	private boolean status;
 	private double balance;
 	
-	private Account account;  // aggregation 
+	//private Account account;  // aggregation 
 	
 	/*
 	 *   access specifiers
@@ -101,7 +102,7 @@ public class Customer{
 	public Customer(Long customerId, Account acc) {
 		// TODO Auto-generated constructor stub
 		this.customerId = customerId;
-		this.account = acc;
+		//this.account = acc;
 	}
 	
 	public Customer(Long customerId, String name, String address, int phoneNumber, String email, boolean status,
@@ -172,13 +173,13 @@ public class Customer{
 		this.balance = balance;
 	}
 
-	public Account getAccount() {
-		return account;
-	}
+	//public Account getAccount() {
+	//	return account;
+	//}
 
-	public void setAccount(Account account) {
-		this.account = account;
-	}
+	//public void setAccount(Account account) {
+	//	this.account = account;
+	//}
 
 	public void setPhoneNumber(Integer phoneNumber) {
 		this.phoneNumber = phoneNumber;

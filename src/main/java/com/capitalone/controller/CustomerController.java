@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.capitalone.model.Customer;
@@ -16,13 +17,14 @@ import com.capitalone.service.CustomerService;
 
 
 @RestController
+@RequestMapping("customer")
 public class CustomerController {
 
 	public CustomerController() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	/*
+	/*  asdasd
 	 * Create customer
 	 * get customer
 	 * Update customer
@@ -47,7 +49,7 @@ public class CustomerController {
 	}
 	
 	@GetMapping("/getCust/{name}")
-	public Customer getCustomer(@PathVariable String name) {
+	public Customer getCustomer(@PathVariable(value="name") String name) {
 		return customerService.getCustomer(name);
 	}
 	
@@ -56,8 +58,8 @@ public class CustomerController {
 		return customerService.updateCustomer(customer);
 	}
 	
-	@DeleteMapping("/deleteCust")
-	public void deleteCustomer(@PathVariable String name) {
+	@DeleteMapping("/deleteCust/{name}")
+	public void deleteCustomer(@PathVariable(value="name") String name) {
 		customerService.deleteCustomer(name);
 	}
 	
