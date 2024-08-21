@@ -53,7 +53,7 @@ public class ServicesServiceImpl implements ServicesService {
 	}
 
 	@Override
-	public Services getLoan(String name) {
+	public Services getLoan(String serviceName) {
 		// TODO Auto-generated method stub
 		
 		List<Services> getServList = servRepo.findAll();
@@ -62,7 +62,7 @@ public class ServicesServiceImpl implements ServicesService {
 			System.out.println(service);
 		}
 		
-		return servRepo.findByName(name);
+		return servRepo.findByServiceName(serviceName);
 	}
 	
 	
@@ -105,9 +105,9 @@ public class ServicesServiceImpl implements ServicesService {
 	}
 
 	@Override
-	public void deleteLoan(String name) {
+	public void deleteLoan(String serviceName) {
 		// TODO Auto-generated method stub
-		servRepo.deleteByName(name);
+		servRepo.deleteByServiceName(serviceName);
 		
 	}
 

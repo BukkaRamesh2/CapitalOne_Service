@@ -15,9 +15,6 @@ import com.capitalone.service.InsuranceService;
 @RestController
 public class InsuranceController {
 
-	public InsuranceController() {
-		// TODO Auto-generated constructor stub
-	}
 
 	@Autowired
 	public InsuranceService insuranceService;

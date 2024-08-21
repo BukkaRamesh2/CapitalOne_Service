@@ -1,4 +1,4 @@
-	package com.capitalone.service;
+package com.capitalone.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,15 +13,6 @@ public class InsuranceServiceImpl implements InsuranceService{
 	@Autowired
 	public InsuranceRepository inspRepo;
 	
-	public InsuranceServiceImpl() {
-		super();
-	}
-
-	public InsuranceServiceImpl(InsuranceRepository inspRepo) {
-		super();
-		this.inspRepo = inspRepo;
-	}
-
 	@Override
 	public Insurance createInsurance(Insurance insurance) {
 		// TODO Auto-generated method stub

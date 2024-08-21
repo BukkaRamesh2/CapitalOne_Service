@@ -10,10 +10,10 @@ import org.springframework.stereotype.Repository;
 import com.capitalone.model.Services;
 
 @Repository
-public interface ServicesRepository extends  JpaRepository<Services, Long>{
+public interface ServicesRepository extends JpaRepository<Services, Long> {
 
-	Services findByName(String name);
+	Services findByServiceName(String serviceName);
 
-	void deleteByName(String name);
+	void deleteByServiceName(String serviceName);
 
 }

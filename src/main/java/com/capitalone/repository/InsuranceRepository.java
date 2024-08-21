@@ -6,10 +6,10 @@ import org.springframework.stereotype.Repository;
 import com.capitalone.model.Insurance;
 
 @Repository
-public interface InsuranceRepository extends JpaRepository<Insurance, Long>{
-	
-	Insurance findByName (String name);
-	
-	void deleteByName(String name);
+public interface InsuranceRepository extends JpaRepository<Insurance, Long> {
+
+	Insurance findByPolicyNumber(Integer policyNumber);
+
+	void deleteBypolicyNumber(Integer name);
 
 }
