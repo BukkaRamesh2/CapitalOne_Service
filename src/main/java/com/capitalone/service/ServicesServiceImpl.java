@@ -10,7 +10,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.capitalone.exception.InvalidCreditException;
+import com.capitalone.exception.LoanNotFoundException;
 import com.capitalone.model.Services;
+
 import com.capitalone.repository.ServicesRepository;
 
 @Service
@@ -39,7 +42,7 @@ public class ServicesServiceImpl implements ServicesService {
 				return  servRepo.save(service);
 			}
 			
-			throw new IllegalArgumentException("Credit Score is lower than the required value");			
+			throw new InvalidCreditException("Credit Score is lower than the required value");			
 		}
 		
 		else {
@@ -61,12 +64,16 @@ public class ServicesServiceImpl implements ServicesService {
 		
 		return servRepo.findByName(name);
 	}
+	
+	
+	
 
 	@Override
-	public Services updateLoan(Services service) {
+	public Services updateLoan(Services service, Long loanId) {
 		// TODO Auto-generated method stub
 		
 		// check if the loan amount is more than the maximum amount
+		try {
 		switch(service.getLoanType()) {
 		case "House Loan":
 			if(service.getLoanAmount() > 800000 ) {
@@ -90,6 +97,8 @@ public class ServicesServiceImpl implements ServicesService {
 			throw new IllegalArgumentException("This Loan type does not exist");			
 		
 		}
+		} catch(Exception e) {
+			throw new LoanNotFoundException("Loan Id" + loanId + "does not exist");	}
 	
 		
 		return servRepo.save(service);
@@ -102,29 +111,7 @@ public class ServicesServiceImpl implements ServicesService {
 		
 	}
 
-	@Override
-	public Services createDeposit(Services service) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Services getDeposit(String name) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Services updateDeposit(Services service) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void deleteDeposit(String name) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 	
 }
 
