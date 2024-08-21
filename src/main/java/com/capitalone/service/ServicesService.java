@@ -13,17 +13,13 @@ public interface ServicesService {
 
 	public Services getLoan(String name);
 
-	public Services updateLoan(Services service);
+	public Services updateLoan(Services service, Long loanId);
 
 	public void deleteLoan(String name);
 
-	public Services createDeposit(Services service);
+	
 
-	public Services getDeposit(String name);
 
-	public Services updateDeposit(Services service);
-
-	public void deleteDeposit(String name);
 
 
 }

@@ -30,10 +30,6 @@ public class ServicesController {
 	 * Update loan
 	 * Delete loan
 	 * 
-	 * Create deposit
-	 * get deposit
-	 * Update deposit
-	 * Delete deposit
 	 * 
 	 */
 
@@ -52,7 +48,7 @@ public class ServicesController {
 
 	@PutMapping("/updateLoan")
 	public Services updateLoan(@RequestBody Services service) {
-		return servicesService.updateLoan(service);
+		return servicesService.updateLoan(service, null);
 	}
 
 	@DeleteMapping("/deleteLoan")
@@ -60,24 +56,6 @@ public class ServicesController {
 		servicesService.deleteLoan(name);
 	}
 
-	@PostMapping("/saveDeposit")
-	public Services createDeposit(@RequestBody Services service) {
-		return servicesService.createDeposit(service);
-	}
-
-	@GetMapping("/getDeposit/{name}")
-	public Services getDeposit(@PathVariable String name) {
-		return servicesService.getDeposit(name);
-	}
-
-	@PutMapping("/updateDeposit")
-	public Services updateDeposit(@RequestBody Services service) {
-		return servicesService.updateDeposit(service);
-	}
-
-	@DeleteMapping("/deleteLoan")
-	public void deleteDeposit(@PathVariable String name) {
-		servicesService.deleteDeposit(name);
-	}
+	
 
 }
