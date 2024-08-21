@@ -1,5 +1,7 @@
 package com.capitalone.model;
 
+import java.io.Serializable;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,8 +14,12 @@ import jakarta.persistence.Table;
  */
 @Entity
 @Table(name = "Account")
-public class Account {
+public class Account implements Serializable{
 	
+	private static final long serialVersionUID = 535169887089801888L;
+
+
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long accountId;

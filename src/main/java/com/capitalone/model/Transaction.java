@@ -1,15 +1,25 @@
 
 package com.capitalone.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 /**
  * 
  * 
  * Author: Mani
  */
+@Entity
+@Table(name = "Transaction")
 public class Transaction{
 
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
     private Long transactionId;  
+	
     private Long customerId;      
     private Long accountId;
     private Long sourceAccountId;

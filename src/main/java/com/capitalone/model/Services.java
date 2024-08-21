@@ -15,6 +15,7 @@ public class Services {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long serviceId;
 	
+	private String serviceName;
 
 	private Long loanId;
 	private String loanType;
@@ -39,6 +40,22 @@ public class Services {
 	}
 
 
+
+	public Long getServiceId() {
+		return serviceId;
+	}
+
+	public void setServiceId(Long serviceId) {
+		this.serviceId = serviceId;
+	}
+
+	public String getServiceName() {
+		return serviceName;
+	}
+
+	public void setServiceName(String serviceName) {
+		this.serviceName = serviceName;
+	}
 
 	public Long getLoanId() {
 		return loanId;
