@@ -10,6 +10,10 @@ public interface InsuranceRepository extends JpaRepository<Insurance, Long> {
 
 	Insurance findByPolicyNumber(Integer policyNumber);
 
-	void deleteBypolicyNumber(Integer name);
+	void deleteBypolicyNumber(Integer policyNumber);
+	
+	Insurance findByBeneficiary(String Beneficiary);
+	
+	Insurance findByName(String name);
 
 }
