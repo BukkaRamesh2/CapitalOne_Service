@@ -4,24 +4,31 @@
 package com.capitalone.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 /**
  * ramesh b
  */
 @Entity
-public class Customer {
+@Table(name = "Customer")
+public class Customer{
 	
 	// accessspecifier datatype name
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long customerId;  // 12   "12"
 	private String name;
 	private String address;
-	private int phoneNumber;
+	private Integer phoneNumber;
 	private String email;
 	private boolean status;
 	private double balance;
+	
+	private Account account;  // aggregation 
 	
 	/*
 	 *   access specifiers
@@ -51,6 +58,35 @@ public class Customer {
 	 *     -- class name
 	 *     -- n numbner of constructors with smae class name
 	 *     
+	 *     
+	 *   Control sattment and deciosn making statments
+	 *   
+	 *   do 
+	 *   while
+	 *   
+	 *    for loop
+	 *    for each loop
+	 *    
+	 *    if(){
+	 *    
+	 *    }else{
+	 *    
+	 *    } 
+	 *    
+	 *    if(){
+	 *    if(){
+	 *    }else 
+	 *    }
+	 *    
+	 *   OOPS
+	 * 
+	 *   Exceptions types
+	 *   
+	 *   Collections
+	 *   
+	 *   
+	 *   asd
+	 *   
 	 * 
 	 * 
 	 */
@@ -62,9 +98,10 @@ public class Customer {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Customer(Long customerId) {
+	public Customer(Long customerId, Account acc) {
 		// TODO Auto-generated constructor stub
 		this.customerId = customerId;
+		this.account = acc;
 	}
 	
 	public Customer(Long customerId, String name, String address, int phoneNumber, String email, boolean status,
@@ -134,11 +171,22 @@ public class Customer {
 	public void setBalance(double balance) {
 		this.balance = balance;
 	}
+
+	public Account getAccount() {
+		return account;
+	}
+
+	public void setAccount(Account account) {
+		this.account = account;
+	}
+
+	public void setPhoneNumber(Integer phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
 	
 	
     
-    
-    
+  
 	
 
 }

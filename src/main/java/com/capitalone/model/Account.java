@@ -1,19 +1,54 @@
 package com.capitalone.model;
+
+import java.io.Serializable;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 /**
  * Account = Abhi
  */
-public class Account extends Customer{
+@Entity
+@Table(name = "Account")
+public class Account implements Serializable{
 	
 	private long customerId;
+
+	private static final long serialVersionUID = 535169887089801888L;
+
+
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long accountId;
+	
+	
+	
+	@Column(name = "name")
 	private String name;
+	
+	@Column(name = "accType")
 	private String accType;
+	
+	@Column(name = "bal")
 	private float bal;
+	
+	@Column(name = "creditCard")
 	private boolean creditCard;
+	
+	@Column(name = "ccBal")
 	private float ccBal;
+	
+	@Column(name = "creditScore")
 	private int creditScore;
 	
-	public Account() {
-		
+	
+	public Long getAccountId() {
+		return accountId;
 	}
 	
 	public Account(long CustomerId) {
@@ -38,8 +73,12 @@ public class Account extends Customer{
 	}
 	public void setCustomerId(long customerId){
 		this.customerId = customerId;
-		
 	}
+		
+	public void setAccountId(Long accountId) {
+		this.accountId = accountId;
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -76,6 +115,10 @@ public class Account extends Customer{
 	public void setCreditScore(int creditScore) {
 		this.creditScore = creditScore;
 	}
+	
+	
+	
+	
 	
 	
 	
