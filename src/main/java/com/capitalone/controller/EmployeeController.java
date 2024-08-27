@@ -15,13 +15,14 @@ public class EmployeeController {
     @Autowired
     public EmployeeService empService;
 
-    @PostMapping("/saveCust")
-    public Employee createCustomer(@RequestBody Employee emp) {
+    @PostMapping("/saveEmployee")
+    public Employee createEmployee(@RequestBody Employee emp) {
+        empService.createEmployeeManually(emp);
         return empService.createEmployee(emp);
     }
 
-    @GetMapping("/getCust/{name}")
-    public ResponseEntity<Employee> getCustomer(@PathVariable String name) {
+    @GetMapping("/getEmployee/{name}")
+    public ResponseEntity<Employee> getEmployee(@PathVariable String name) {
         return new ResponseEntity<>(empService.getEmployee(name), HttpStatus.OK);
 
     }

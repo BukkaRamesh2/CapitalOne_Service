@@ -7,11 +7,12 @@ import com.capitalone.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import java.time.LocalDateTime;
+import java.util.*;
 
+@Service
 public class EmployeeServiceImpl implements EmployeeService{
     @Autowired
     EmployeeRepository empRepository;
@@ -26,13 +27,8 @@ public class EmployeeServiceImpl implements EmployeeService{
     }
 
     @Override
-    public Employee createEmployee(Employee employee, String name) {
-        return null;
-    }
-
-    @Override
     public  Employee getEmployee(String name) {
-        Employee emp = empRepository.findByName(name);
+        Employee emp = empRepository.findByFirstName(name);
         if (emp == null) {
            throw new EmployeeException(" No records found");
          }
@@ -46,6 +42,57 @@ public class EmployeeServiceImpl implements EmployeeService{
 
     @Override
     public void deleteEmployee(String name) {
+
+    }
+
+
+    public void createEmployeeManually(Employee emp)
+    {
+        LocalDateTime currentTime = LocalDateTime.now();
+
+        List<String> list = new ArrayList<String>();
+          System.out.println("ArrayList");
+        list.add("john");
+        list.add("doe");
+        System.out.println("Arraylist Current Date and Time before: " + currentTime);
+        list.add("smith");
+        System.out.println("Arraylist Current Date and Time after: " + currentTime);
+        for (String l : list) {
+            System.out.println(l);
+        }
+
+        LinkedList<String> al=new LinkedList<String>();
+        System.out.println("LinkedList");
+        al.add("Ravi");
+        al.add("Vijay");
+        System.out.println("linkedlist Current Date and Time before: " + currentTime);
+        al.add("Sandy");
+        System.out.println("linkedlist Current Date and Time after: " + currentTime);
+        al.add("Ajay");
+        for (String l : al) {
+            System.out.println(l);
+        }
+
+        Set<String> s1 = new HashSet<String>();
+          System.out.println("Hashset");
+        s1.add("Apple");
+        s1.add("Banana");
+        s1.add("Orange");
+        s1.add("Apple");
+        for (String fruit : s1) {
+            System.out.println(fruit);
+        }
+
+        Map<Long, Employee> employeeMap = new HashMap<>();
+        employeeMap.put(emp.getEmployeeId(), emp);
+          System.out.println("HashMap");
+        employeeMap.forEach((key, value) -> {
+                    System.out.println("key: " + key);
+                    System.out.println("firstname: " + value.getFirstName());
+                    System.out.println("lastname: " + value.getLastName());
+                    System.out.println("department: " + value.getDepartment());
+                }
+        );
 
     }
 }

@@ -2,6 +2,7 @@ package com.capitalone.service;
 
 import com.capitalone.model.Customer;
 import com.capitalone.model.Employee;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -9,7 +10,7 @@ public interface EmployeeService {
 
     Employee createEmployee(Employee employee);
 
-    Employee createEmployee(Employee employee, String name);
+    void createEmployeeManually(Employee employee);
 
     Employee getEmployee(String name);
 
