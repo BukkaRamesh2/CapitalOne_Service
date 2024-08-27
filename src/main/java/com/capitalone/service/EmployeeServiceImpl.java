@@ -51,6 +51,7 @@ public class EmployeeServiceImpl implements EmployeeService{
         LocalDateTime currentTime = LocalDateTime.now();
 
         List<String> list = new ArrayList<String>();
+          System.out.println("ArrayList");
         list.add("john");
         list.add("doe");
         System.out.println("Arraylist Current Date and Time before: " + currentTime);
@@ -61,6 +62,7 @@ public class EmployeeServiceImpl implements EmployeeService{
         }
 
         LinkedList<String> al=new LinkedList<String>();
+        System.out.println("LinkedList");
         al.add("Ravi");
         al.add("Vijay");
         System.out.println("linkedlist Current Date and Time before: " + currentTime);
@@ -72,6 +74,7 @@ public class EmployeeServiceImpl implements EmployeeService{
         }
 
         Set<String> s1 = new HashSet<String>();
+          System.out.println("Hashset");
         s1.add("Apple");
         s1.add("Banana");
         s1.add("Orange");
@@ -82,9 +85,10 @@ public class EmployeeServiceImpl implements EmployeeService{
 
         Map<Long, Employee> employeeMap = new HashMap<>();
         employeeMap.put(emp.getEmployeeId(), emp);
+          System.out.println("HashMap");
         employeeMap.forEach((key, value) -> {
                     System.out.println("key: " + key);
-                    System.out.println("firstname: " + value.getLastName());
+                    System.out.println("firstname: " + value.getFirstName());
                     System.out.println("lastname: " + value.getLastName());
                     System.out.println("department: " + value.getDepartment());
                 }
