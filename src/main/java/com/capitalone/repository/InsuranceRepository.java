@@ -14,6 +14,6 @@ public interface InsuranceRepository extends JpaRepository<Insurance, Long> {
 	
 	Insurance findByBeneficiary(String Beneficiary);
 	
-	Insurance findByName(String name);
+	Insurance findByInsuranceId(Long insuranceId);
 
 }

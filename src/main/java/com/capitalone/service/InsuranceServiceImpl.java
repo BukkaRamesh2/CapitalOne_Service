@@ -1,5 +1,8 @@
 package com.capitalone.service;
 
+import java.util.*;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,9 +23,62 @@ public class InsuranceServiceImpl implements InsuranceService{
 	@Autowired
 	public InsuranceRepository inspRepo;
 	
+	private List<Insurance> arrayList = new ArrayList<>();
+	private List<Insurance> linkedList = new LinkedList<>();
+	
+	private Set<Long> hashSet = new HashSet<>();
+	private Set<Long> linkedHashSet = new LinkedHashSet<>();
+	private Set<Long> treeSet = new TreeSet<>();
+//	
+//	private Map<Long, Insurance> hashMap = new HashMap<>();
+//	private Map<Long, Insurance> linkedHashMap = new LinekedHashMap<>();
+//	private Map<Long, Insurance> treeMap = new TreeMap<>();
+//	
+	
 	@Override
 	public Insurance createInsurance(Insurance insurance) {
-
+		
+		
+		long startTime, endTime;
+		
+		startTime = System.nanoTime();
+		arrayList.add(insurance);
+		endTime = System.nanoTime();
+		System.out.println("ArrayList insertion time is: "+(endTime-startTime));
+		
+		startTime = System.nanoTime();
+		linkedList.add(insurance);
+		endTime = System.nanoTime();
+		System.out.println("LinkedList insertion time is: "+(endTime-startTime));
+		
+		
+		startTime = System.nanoTime();
+		hashSet.add(insurance.getInsuranceId());
+		endTime = System.nanoTime();
+		System.out.println("HashSet insertion time is: "+(endTime-startTime));
+		
+		startTime = System.nanoTime();
+		treeSet.add(insurance.getInsuranceId());
+		endTime = System.nanoTime();
+		System.out.println("TreeSet insertion time is: "+(endTime-startTime));
+		
+		
+//		startTime = System.nanoTime();
+//		hashMap.put(insurance.getInsuranceId(), insurance);
+//		endTime = System.nanoTime();
+//		System.out.println("HashMap insertion time is: "+(endTime-startTime));
+//		
+//		startTime = System.nanoTime();
+//		linkedHashMap.put(insurance.getInsuranceId(), insurance);
+//		endTime = System.nanoTime();
+//		System.out.println("LinkedHashMap insertion time is: "+(endTime-startTime));
+//		
+//		startTime = System.nanoTime();
+//		treeMap.put(insurance.getInsuranceId(), insurance);
+//		endTime = System.nanoTime();
+//		System.out.println("Tree Map insertion time is: "+(endTime-startTime));
+//		
+		
 		if(inspRepo.existsById(insurance.getInsuranceId())) {
 			throw new BankingException("Insurance with id: "+ insurance.getInsuranceId()+ " already exists.");
 		}
@@ -39,14 +95,14 @@ public class InsuranceServiceImpl implements InsuranceService{
 	}
 
 	@Override
-	public Insurance getInsurance(String name) {
+	public Insurance getInsurance(Long insuranceId) {
 		// TODO Auto-generated method stub
 		
-		if (name == null || name.trim().isEmpty()) {
+		if (insuranceId == null) {
 		       throw new InvalidInsuranceNameException();
 		   }
 		else
-			return inspRepo.findByName(name);
+			return inspRepo.findByInsuranceId(insuranceId);
 
 	}
 
@@ -57,7 +113,7 @@ public class InsuranceServiceImpl implements InsuranceService{
 	}
 
 	@Override
-	public void deleteInsurance(String name) {
+	public void deleteInsurance(Long insuranceId) {
 		// TODO Auto-generated method stub
 		
 	}

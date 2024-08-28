@@ -8,10 +8,10 @@ public interface InsuranceService {
 	
 	public Insurance createInsurance(Insurance insurance);
 	
-	public Insurance getInsurance(String name);
+	public Insurance getInsurance(Long insuranceId);
 
 	public Insurance updateInsurance(Insurance insurance);
 	
-	public void deleteInsurance(String name);
+	public void deleteInsurance(Long insuranceId);
 	
 }

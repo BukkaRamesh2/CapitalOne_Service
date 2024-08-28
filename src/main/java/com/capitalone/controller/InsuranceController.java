@@ -30,14 +30,14 @@ public class InsuranceController {
 	}
 
 	@DeleteMapping("/deleteIns")
-	public void deleteInsurance(@PathVariable String name) {
-		insuranceService.deleteInsurance(name);
+	public void deleteInsurance(@PathVariable Long insuranceId) {
+		insuranceService.deleteInsurance(insuranceId);
 	}
 
 
 	@GetMapping("/getIns/{name}")
-	public Insurance getInsurance(@PathVariable String name) {
-		return insuranceService.getInsurance(name);
+	public Insurance getInsurance(@PathVariable Long insuranceId) {
+		return insuranceService.getInsurance(insuranceId);
 	}
 
 
