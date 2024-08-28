@@ -49,7 +49,7 @@ public class CustomerController {
 	}
 	
 	@GetMapping("/getCust/{name}")
-	public Customer getCustomer(@PathVariable(value="name") String name) {
+	public Customer getCustomer(@PathVariable String name) {
 		return customerService.getCustomer(name);
 	}
 	
