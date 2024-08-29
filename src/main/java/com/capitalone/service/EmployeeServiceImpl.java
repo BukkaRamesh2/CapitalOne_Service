@@ -7,11 +7,13 @@ import com.capitalone.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+@Service
 public class EmployeeServiceImpl implements EmployeeService{
     @Autowired
     EmployeeRepository empRepository;
@@ -32,7 +34,7 @@ public class EmployeeServiceImpl implements EmployeeService{
 
     @Override
     public  Employee getEmployee(String name) {
-        Employee emp = empRepository.findByName(name);
+        Employee emp = empRepository.findByFirstName(name);
         if (emp == null) {
            throw new EmployeeException(" No records found");
          }
