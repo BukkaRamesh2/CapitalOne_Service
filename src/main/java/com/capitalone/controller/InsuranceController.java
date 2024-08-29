@@ -35,7 +35,7 @@ public class InsuranceController {
 	}
 
 
-	@GetMapping("/getIns/{name}")
+	@GetMapping("/getIns/{insuranceId}")
 	public Insurance getInsurance(@PathVariable Long insuranceId) {
 		return insuranceService.getInsurance(insuranceId);
 	}
