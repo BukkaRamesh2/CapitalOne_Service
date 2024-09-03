@@ -9,14 +9,15 @@ import jakarta.persistence.Transient;
 
 /**
  * Sreedath
+ * testing...
  */
+
 
 
 @Entity
 @Table(name = "Insurance")
 public class Insurance {
-
-
+	
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
