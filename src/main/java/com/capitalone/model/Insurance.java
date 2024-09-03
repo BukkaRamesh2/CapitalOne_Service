@@ -20,7 +20,7 @@ public class Insurance {
 	
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)// i think this line isnt required, because its making all insuranceIds 1,2,3,4..
 	private Long insuranceId;
 	private String policyType;
 	private Integer policyNumber;
