@@ -6,19 +6,86 @@ import com.capitalone.model.Transaction;
 import com.capitalone.repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.util.*;
 
 import java.util.List;
 
 @Service
 public class TransactionServiceImpl implements TransactionService {
 
+
     @Autowired
     private TransactionRepository transactionRepository;
+    private List<Transaction> arrayList = new ArrayList<>();
+    private List<Transaction> linkedList = new LinkedList<>();
+
+    private Set<Long> hashSet = new HashSet<>();
+    private Set<Long> linkedHashSet = new LinkedHashSet<>();
+    private Map<Long, Transaction> hashMap = new HashMap<>();
+    private Map<Long, Transaction> synchronizedHashMap = Collections.synchronizedMap(new HashMap<>());
+    private Map<Long, Transaction> hashtable = new Hashtable<>();
+
+    private Map<Long, Transaction> linkedHashMap = new LinkedHashMap<>();
+
 
     @Override
     public Transaction createTransaction(Transaction transaction) {
         try {
+            long startTime, endTime;
+
+            // ArrayList insertion time:  542 ns
+            startTime = System.nanoTime();
+            arrayList.add(transaction);
+            endTime = System.nanoTime();
+            System.out.println("ArrayList insertion time: " + (endTime - startTime) + " ns");
+
+            // LinkedList insertion time:  2834 ns
+            startTime = System.nanoTime();
+            linkedList.add(transaction);
+            endTime = System.nanoTime();
+            System.out.println("LinkedList insertion time: " + (endTime - startTime) + " ns");
+
+            // HashSet insertion time: 1292 ns
+            startTime = System.nanoTime();
+            hashSet.add(transaction.getTransactionId());
+            endTime = System.nanoTime();
+            System.out.println("HashSet insertion time: " + (endTime - startTime) + " ns");
+
+            // LinkedHashSet insertion time: 916 ns
+            startTime = System.nanoTime();
+            linkedHashSet.add(transaction.getTransactionId());
+            endTime = System.nanoTime();
+            System.out.println("LinkedHashSet insertion time: " + (endTime - startTime) + " ns");
+
+
+            // LinkedHashMap insertion time: 666 ns
+            startTime = System.nanoTime();
+            linkedHashMap.put(transaction.getTransactionId(), transaction);
+            endTime = System.nanoTime();
+            System.out.println("LinkedHashMap insertion time: " + (endTime - startTime) + " ns");
+
+            // HashMap insertion time: 375 ns
+            startTime = System.nanoTime();
+            hashMap.put(transaction.getTransactionId(), transaction);
+            endTime = System.nanoTime();
+            System.out.println("HashMap insertion time: " + (endTime - startTime) + " ns");
+
+
+            // Synchronized HashMap insertion time: 2000 ns
+            startTime = System.nanoTime();
+            synchronizedHashMap.put(transaction.getTransactionId(), transaction);
+            endTime = System.nanoTime();
+            System.out.println("Synchronized HashMap insertion time: " + (endTime - startTime) + " ns");
+
+            // Hashtable insertion time
+//            startTime = System.nanoTime();
+//            hashtable.put(transaction.getTransactionId(), transaction);
+//            endTime = System.nanoTime();
+//            System.out.println("Hashtable insertion time: " + (endTime - startTime) + " ns");
+
+
             return transactionRepository.save(transaction);
+
         } catch (Exception e) {
             throw new RuntimeException("Error creating transaction: " + e.getMessage(), e);
         }
@@ -26,7 +93,30 @@ public class TransactionServiceImpl implements TransactionService {
 
     @Override
     public Transaction getTransaction(Long transactionId) {
-           return transactionRepository.findById(transactionId)
+
+
+        long startTime, endTime;
+
+        // ArrayList retrieval time: 1623375 ns
+        startTime = System.nanoTime();
+        Transaction transaction = null;
+        for (Transaction trans : arrayList) {
+            if (trans.getTransactionId().equals(transactionId)) {
+                transaction = trans;
+                break;
+            }
+        }
+        endTime = System.nanoTime();
+        System.out.println("ArrayList retrieval time: " + (endTime - startTime) + " ns");
+
+        // HashMap retrieval time: 13333 ns
+        startTime = System.nanoTime();
+        transaction = hashMap.get(transactionId);
+        endTime = System.nanoTime();
+        System.out.println("HashMap retrieval time: " + (endTime - startTime) + " ns");
+
+
+        return transactionRepository.findById(transactionId)
             .orElseThrow(() -> new TransactionNotFoundException("Transaction with ID " + transactionId + " not found"));
     }
 
