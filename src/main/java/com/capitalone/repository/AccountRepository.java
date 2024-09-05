@@ -8,5 +8,11 @@ import com.capitalone.model.Account;
 @Repository
 public interface AccountRepository extends JpaRepository<Account, Long>{
 
-	
+	 Account findByCustomerId(long customerId);
+
+	    Account findByName(String name);
+
+	    void deleteByCustomerId(long customerId);
+
+	    void deleteByName(String name);
 }

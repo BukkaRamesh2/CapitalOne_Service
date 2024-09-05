@@ -16,6 +16,8 @@ import jakarta.persistence.Table;
 @Table(name = "Account")
 public class Account implements Serializable{
 	
+	private long customerId;
+
 	private static final long serialVersionUID = 535169887089801888L;
 
 
@@ -48,6 +50,31 @@ public class Account implements Serializable{
 	public Long getAccountId() {
 		return accountId;
 	}
+	
+	public Account(long CustomerId) {
+		this.customerId = customerId;
+		
+	}
+	
+	
+	public Account(long customerId, String name, String accType, float bal, boolean creditCard, float ccBal,
+			int creditScore) {
+		super();
+		this.customerId = customerId;
+		this.name = name;
+		this.accType = accType;
+		this.bal = bal;
+		this.creditCard = creditCard;
+		this.ccBal = ccBal;
+		this.creditScore = creditScore;
+	}
+	public long getCustomerId() {
+		return customerId;
+	}
+	public void setCustomerId(long customerId){
+		this.customerId = customerId;
+	}
+		
 	public void setAccountId(Long accountId) {
 		this.accountId = accountId;
 	}

@@ -11,7 +11,11 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 
     List<Employee> findByDepartment(String department);
 
-    Employee findByFirstName(String FirstName);
+<<<<<<< HEAD
+    Employee findByFirstName(String firstName);
+=======
+    Employee findByFirstName(String firstName);
+>>>>>>> cd8c9e5259be608ec7c7b73564acd4bc27f36ee1
 
 
 }
